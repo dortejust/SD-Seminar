@@ -19,7 +19,7 @@ pageextension 50101 "CSD ResourcelistExt" extends "Resource List"
             }
         }
     }
-}
+
 
 
 
@@ -32,7 +32,7 @@ pageextension 50101 "CSD ResourcelistExt" extends "Resource List"
 
     var
         [InDataSet]
-        ShowType: Boolean
-    [InDataSet]
-        ShowMaxField: Boolean
+        ShowType: Boolean;
+        [InDataSet]
+        ShowMaxField: Boolean;
 }
