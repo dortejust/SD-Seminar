@@ -150,8 +150,8 @@ page 50134 "CSD Posted Seminar Reg."
                 PromotedCategory = Process;
                 trigger OnAction();
                 var
-                    Navigate: Page Navigate
-             begin
+                    Navigate: Page Navigate;
+                begin
                     Navigate.SetDoc("Posting Date", "No.");
                     Navigate.Run;
                 end;

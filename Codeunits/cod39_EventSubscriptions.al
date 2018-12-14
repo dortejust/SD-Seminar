@@ -11,7 +11,7 @@ codeunit 50139 EventSubscriptions
         ResLedgerEntry."CSD Seminar Registration No." := ResJournalLine."CSD Seminar Registration No.";
     end;
 
-    [EventSubscriber(Page::Navigate, Codeunit::, '', '', true, true)]
+    [EventSubscriber(ObjectType::Page, page::Navigate, 'OnAfterNavigateShowRecords', '', true, true)]
     local procedure OnAfterNavigateShowRecords(TableID: Integer; DocNoFilter: Text; PostingDateFilter: Text; ItemTrackingSearch: Boolean)
     var
         SeminarLedgerEntry: Record "CSD Seminar Ledger Entry";
@@ -26,7 +26,7 @@ codeunit 50139 EventSubscriptions
                 End;
             Database::"CSD Seminar Ledger Entry":
                 begin
-                    SeminarLedgerEntry.SetFilter("No.", DocNoFilter);
+                    SeminarLedgerEntry.SetFilter("Document No.", DocNoFilter);
                     SeminarLedgerEntry.SetFilter("Posting Date", PostingDateFilter);
                     Page.Run(0, SeminarLedgerEntry);
                 End;
@@ -35,7 +35,7 @@ codeunit 50139 EventSubscriptions
 
     end;
 
-    [EventSubscriber(ObjectType::Page, Page::Navigate, 'OnAfterNavigateFindRecords', '', true, true]
+    [EventSubscriber(ObjectType::Page, Page::Navigate, 'OnAfterNavigateFindRecords', '', true, true)]
     local procedure ExtendNavigateOnAfterNavigateFindRecords(VAR DocumentEntry: Record "Document Entry"; DocNoFilter: Text; PostingDateFilter: Text)
     var
         Seminarledgerentry: Record "CSD Seminar Ledger Entry";
